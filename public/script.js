@@ -63,7 +63,7 @@ async function updateUserRow(row) {
     const data = await response.json();
 
     if (data.data && data.data.length > 0) {
-        const thumbnailResponse = await fetch(`https://thumbnails.roproxy.com/v1/users/avatar?userIds=${data.data[0].id}&size=140x140&format=Png&isCircular=false`);
+        const thumbnailResponse = await fetch(`https://thumbnails.roproxy.com/v1/users/avatar?userIds=${data.data[0].id}&size=75x75&format=Png&isCircular=false`);
         const thumbnailData = await thumbnailResponse.json();
     
         if (thumbnailData.data && thumbnailData.data.length > 0) {
@@ -73,8 +73,8 @@ async function updateUserRow(row) {
             const userImage = document.createElement('img');
             userImage.src = imageUrl;
             userImage.alt = "User's avatar";
-            userImage.width = 140;
-            userImage.height = 140;
+            userImage.width = 75;
+            userImage.height = 75;
             
             // Append image to the third column
             userIdCell.innerHTML = ''; // Clear the content (if there's any)
