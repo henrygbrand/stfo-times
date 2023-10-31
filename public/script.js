@@ -22,6 +22,7 @@ addForm.addEventListener('submit', async (e) => {
     })
   });
   fetchData();
+  fetchTotalTime();
   addForm.reset();
 });
 
@@ -38,6 +39,7 @@ deleteForm.addEventListener('submit', async (e) => {
     })
   });
   fetchData();
+  fetchTotalTime();
   deleteForm.reset();
 });
 
@@ -99,7 +101,18 @@ const observer = new MutationObserver(mutations => {
     });
 });
 
+
+const totalTimeDisplay = document.getElementById('totalTimeDisplay');
+
+const fetchTotalTime = async () => {
+  const response = await fetch('/totalTime');
+  const totalTime = await response.json();
+  totalTimeDisplay.textContent = totalTime;
+};
+
+
 observer.observe(tableBody, { childList: true });
 
-
-fetchData();
+fetchData().then(() => {
+    fetchTotalTime();
+});

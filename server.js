@@ -54,7 +54,14 @@ app.post('/delete', async (req, res) => {
     const { username } = req.body;
     await User.deleteOne({ username });
     res.json({ success: true });
-  });
+});
+
+app.get('/totalTime', async (req, res) => {
+    const total = await User.aggregate([
+        { $group: { _id: null, totalTime: { $sum: "$time" } } }
+    ]);
+    res.json(total[0] ? total[0].totalTime : 0);
+});
 
 
 const PORT = process.env.PORT || 3000;
