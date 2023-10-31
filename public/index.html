@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STFO Sheet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Time</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+
+    <form id="addForm">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="text" name="time" placeholder="Time" required>
+        <button type="submit">Add/Update</button>
+    </form>
+
+    <form id="deleteForm">
+        <input type="text" name="username" placeholder="Username" required>
+        <button type="submit">Delete</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
